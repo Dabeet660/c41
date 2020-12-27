@@ -27,6 +27,7 @@ function setup(){
 
 function draw(){
     background("Black")
+    Engine.update(engine);
     man.display();
 
     if(frameCount%60==0){
