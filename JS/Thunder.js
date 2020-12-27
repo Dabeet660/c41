@@ -1,21 +1,25 @@
 class Thunder{
-    constructor(x,y){
+    constructor(x,y,r){
         var options = {
             restitution:0.4
         }
-        this.body = Bodies.circle(x,y,10,options);
-        this.x = x;
-        this.y = y;
+        this.r = r;
+
+        this.body = Bodies.circle(x,y,this.r,options);
 
         World.add(world,this.body)
     }
     display(){
-        push()
-        translate(this.body.position.x,this.body.position.y)
-        rotate(this.body.angle)
+
+        var angle = this.body.angle;
+        var pos = this.body.position;
+
+        push();
+        translate(pos.x,pos.y)
+        rotate(angle)
         fill("Blue")
         ellipseMode(RADIUS)
-        ellipse(0,0,10,10)
-        pop()
+        ellipse(0,0,this.r,this.r)
+        pop();
     }
 }
